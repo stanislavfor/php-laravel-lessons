@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EmployeeController;
+use app\Http\Controllers\EmployeeController;
 
 //Route::get('/', function () {
 //    return view('welcome');

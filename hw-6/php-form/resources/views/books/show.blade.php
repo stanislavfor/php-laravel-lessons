@@ -39,7 +39,7 @@
                 <td>{{ $book->pages }}</td>
                 <td>
                     @if ($book->cover)
-                        <img src="{{ $book->cover }}" alt="{{ $book->title }} Cover" style="max-width: 100px;">
+                        <img src="{{ asset($book->cover) }}" alt="{{ $book->title }} Cover" style="max-width: 100px;">
                     @else
                         No Cover
                     @endif

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BookController;
+use app\Http\Controllers\BookController;
 
 Route::get('/', function () {
     return view('welcome');

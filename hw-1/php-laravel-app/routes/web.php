@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\FormProcessor;
+use app\Http\Controllers\UserController;
+use app\Http\Controllers\FormProcessor;
 
 Route::get('/', function () {
     return view('welcome');
