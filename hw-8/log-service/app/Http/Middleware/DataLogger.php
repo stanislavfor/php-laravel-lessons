@@ -1,12 +1,16 @@
 <?php
-//
-//namespace App\Http\Middleware;
-//
-//use Closure;
-//use Illuminate\Http\Request;
-//use App\Models\Log;
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+use App\Models\Log;
 //use Symfony\Component\HttpFoundation\Response;
-//
+//use Illuminate\Support\Facades\File;
+
+
+
 //class DataLogger
 //{
 //    private $start_time;
@@ -80,13 +84,6 @@
 //}
 
 
-namespace App\Http\Middleware;
-
-use Closure;
-use Illuminate\Http\Request;
-use App\Models\Log;
-use Symfony\Component\HttpFoundation\Response;
-use Illuminate\Support\Facades\File;
 
 class DataLogger
 {
@@ -125,3 +122,6 @@ class DataLogger
         }
     }
 }
+
+
+

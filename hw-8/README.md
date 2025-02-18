@@ -395,6 +395,7 @@ Route::get('/logs', function() {
 15. При открытии приложения http://localhost:8000/logs , открывается таблица с логами обращения к сайту.
 
 ![](../archives/hw-8-6.jpg) <br>
+![](../archives/hw-8-7.jpg) <br>
 
 <br><br><hr>
 

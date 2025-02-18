@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Log extends Model
 {
     //
-//    public $timestamps = false;
-    public $timestamps = true; // Включаем временные метки
+    public $timestamps = false;
+//    public $timestamps = true; // Включаем временные метки
 }
