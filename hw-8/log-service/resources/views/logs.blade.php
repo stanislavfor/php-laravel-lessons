@@ -1,11 +1,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Логи</title>
-{{--    <style>--}}
-{{--        td:nth-child(5),td:nth-child(6){text-align:center;}--}}
-{{--        table{position:absolute; border-spacing:0; border-collapse: collapse; width: 70%; box-shadow: 0px 4px 180px rgb(255 255 255 / 25%);}--}}
-{{--    </style>--}}
+    <title>Logs</title>
+    <style>
+        td:nth-child(5),td:nth-child(6){text-align:center;}
+        table{position:absolute; border-spacing:0; border-collapse: collapse; width: 70%; box-shadow: 0px 4px 180px rgb(255 255 255 / 25%);}
+    </style>
 {{--    <style>--}}
 {{--        .table {--}}
 {{--            width: 100%;--}}
@@ -42,43 +42,43 @@
 
 {{--    </style>--}}
     <style>
-                body {
-                    font-family: Arial, sans-serif;
-                }
+                /*body {*/
+                /*    font-family: Arial, sans-serif;*/
+                /*}*/
 
-                h2 {
-                    margin-left: 100px;
-                }
+                /*h2 {*/
+                /*    margin-left: 100px;*/
+                /*}*/
 
-                table {
-                    margin: 20px;
-                    width: 100%;
-                    border-collapse: collapse;
-                }
-                th, td {
-                    border: 1px solid #ddd;
-                    padding: 8px;
-                    text-align: center;
-                }
-                th {
-                    background-color: #f2f2f2;
-                }
-                tr:nth-child(even) {
-                    background-color: #f9f9f9;
-                }
-                tr:hover {
-                    background-color: #f1f1f1;
-                }
-                td:nth-child(5), td:nth-child(6) {
-                    text-align: center;
-                }
-                table {
-                    position: relative;
-                    border-spacing: 0;
-                    border-collapse: collapse;
-                    width: 70%;
-                    box-shadow: 0px 4px 180px rgb(255 255 255 / 25%);
-                }
+                /*table {*/
+                /*    margin: 20px;*/
+                /*    width: 100%;*/
+                /*    border-collapse: collapse;*/
+                /*}*/
+                /*th, td {*/
+                /*    border: 1px solid #ddd;*/
+                /*    padding: 8px;*/
+                /*    text-align: center;*/
+                /*}*/
+                /*th {*/
+                /*    background-color: #f2f2f2;*/
+                /*}*/
+                /*tr:nth-child(even) {*/
+                /*    background-color: #f9f9f9;*/
+                /*}*/
+                /*tr:hover {*/
+                /*    background-color: #f1f1f1;*/
+                /*}*/
+                /*td:nth-child(5), td:nth-child(6) {*/
+                /*    text-align: center;*/
+                /*}*/
+                /*table {*/
+                /*    position: relative;*/
+                /*    border-spacing: 0;*/
+                /*    border-collapse: collapse;*/
+                /*    width: 70%;*/
+                /*    box-shadow: 0px 4px 180px rgb(255 255 255 / 25%);*/
+                /*}*/
 
     </style>
 </head>
