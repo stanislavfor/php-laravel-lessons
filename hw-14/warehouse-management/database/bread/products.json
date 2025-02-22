@@ -1,0 +1,96 @@
+{
+    "name": "products",
+    "model_name": "App\\Models\\Product",
+    "controller": "ProductController",
+    "policy": "App\\Policies\\ProductPolicy",
+    "generate_permissions": 1,
+    "server_side": 0,
+    "details": {
+        "order_column": null,
+        "order_display_column": null,
+        "order_direction": "asc",
+        "default_search_key": null,
+        "scope": null
+    },
+    "fields": [
+        {
+            "type": "text",
+            "display_name": "ID",
+            "required": 0,
+            "browse": 1,
+            "read": 1,
+            "edit": 0,
+            "add": 0,
+            "delete": 0,
+            "details": {},
+            "field": "id"
+        },
+        {
+            "type": "text",
+            "display_name": "SKU",
+            "required": 1,
+            "browse": 1,
+            "read": 1,
+            "edit": 1,
+            "add": 1,
+            "delete": 1,
+            "details": {},
+            "field": "sku"
+        },
+        {
+            "type": "text",
+            "display_name": "Name",
+            "required": 1,
+            "browse": 1,
+            "read": 1,
+            "edit": 1,
+            "add": 1,
+            "delete": 1,
+            "details": {},
+            "field": "name"
+        },
+        {
+            "type": "relationship",
+            "display_name": "Category",
+            "required": 1,
+            "browse": 1,
+            "read": 1,
+            "edit": 1,
+            "add": 1,
+            "delete": 1,
+            "details": {
+                "model": "App\\Models\\Category",
+                "table": "categories",
+                "type": "BelongsTo",
+                "column": "category_id",
+                "key": "id",
+                "label": "name"
+            },
+            "field": "category_id"
+        },
+        {
+            "type": "timestamp",
+            "display_name": "Created At",
+            "required": 0,
+            "browse": 1,
+            "read": 1,
+            "edit": 0,
+            "add": 0,
+            "delete": 0,
+            "details": {},
+            "field": "created_at"
+        },
+        {
+            "type": "timestamp",
+            "display_name": "Updated At",
+            "required": 0,
+            "browse": 1,
+            "read": 1,
+            "edit": 0,
+            "add": 0,
+            "delete": 0,
+            "details": {},
+            "field": "updated_at"
+        }
+    ]
+}

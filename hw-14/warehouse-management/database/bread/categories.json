@@ -1,0 +1,81 @@
+{
+    "name": "categories",
+    "model_name": "App\\Models\\Category",
+    "controller": "CategoryController",
+    "policy": "App\\Policies\\CategoryPolicy",
+    "generate_permissions": 1,
+    "server_side": 0,
+    "details": {
+        "order_column": "id",
+        "order_display_column": "name",
+        "order_direction": "asc",
+        "default_search_key": "name",
+        "scope": null
+    },
+    "fields": [
+        {
+            "type": "text",
+            "display_name": "ID",
+            "required": 0,
+            "browse": 1,
+            "read": 1,
+            "edit": 0,
+            "add": 0,
+            "delete": 0,
+            "details": {},
+            "field": "id"
+        },
+        {
+            "type": "text",
+            "display_name": "Name",
+            "required": 1,
+            "browse": 1,
+            "read": 1,
+            "edit": 1,
+            "add": 1,
+            "delete": 1,
+            "details": {
+                "validation": {
+                    "rule": "required|string|max:255|unique:categories,name"
+                }
+            },
+            "field": "name"
+        },
+        {
+            "type": "textarea",
+            "display_name": "Description",
+            "required": 0,
+            "browse": 1,
+            "read": 1,
+            "edit": 1,
+            "add": 1,
+            "delete": 1,
+            "details": {},
+            "field": "description"
+        },
+        {
+            "type": "timestamp",
+            "display_name": "Created At",
+            "required": 0,
+            "browse": 1,
+            "read": 1,
+            "edit": 0,
+            "add": 0,
+            "delete": 0,
+            "details": {},
+            "field": "created_at"
+        },
+        {
+            "type": "timestamp",
+            "display_name": "Updated At",
+            "required": 0,
+            "browse": 1,
+            "read": 1,
+            "edit": 0,
+            "add": 0,
+            "delete": 0,
+            "details": {},
+            "field": "updated_at"
+        }
+    ]
+}
