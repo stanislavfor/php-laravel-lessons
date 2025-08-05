@@ -61,6 +61,7 @@ cd hw-10
 <br>
 
 ## Инструкция
+<br>
 ### 1. Создать новый проект Laravel с именем tenth-laravel-app
 
 Открыть терминал. Выполнить команду:
@@ -193,6 +194,7 @@ protected function schedule(Schedule $schedule)
 php artisan queue:listen
 ```
 Не закрывать терминал.
+
 <br>
 
 ### 10. Запустить планировщик задач Laravel
