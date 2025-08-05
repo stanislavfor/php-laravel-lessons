@@ -421,6 +421,7 @@ git commit -m "Added events, listeners, and observers for the model News"
 ```
 git push origin feature/news-events
 ```
+<br>
 
 ### 15. Возможные ошибки при коммитах
 
