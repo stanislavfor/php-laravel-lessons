@@ -58,6 +58,8 @@ protected Function schedule(Schedule $schedule)
 ```
 cd hw-10
 ```
+<br>
+
 ## Инструкция
 ### 1. Создать новый проект Laravel с именем tenth-laravel-app
 
@@ -73,6 +75,21 @@ laravel new tenth-laravel-app
 cd tenth-laravel-app
 ```
 
+Запустить проект командой:
+```
+php artisan serve
+```
+
+После запуска в терминале появится сообщение:
+
+```
+INFO Starting Laravel development server: http://127.0.0.1:8000
+```
+
+Открыть браузер и перейти по адресу: http://127.0.0.1:8000
+
+<br>
+
 ### 2. Создать новую ветку репозитория от основной ветки
 
 Инициализировать git, если это ещё не выполнено подключение git:
@@ -87,7 +104,7 @@ git init
 git checkout -b feature/clear-cache-job
 ```
 
-
+<br>
 
 ### 3. Создать миграцию таблицы для очередей
 
@@ -97,6 +114,8 @@ git checkout -b feature/clear-cache-job
 php artisan queue:table
 ```
 
+<br>
+
 ### 4. Выполнить миграцию базы данных
 
 Запустить команду миграции:
@@ -104,6 +123,7 @@ php artisan queue:table
 ```
 php artisan migrate
 ```
+<br>
 
 ### 5. Указать использование очередей через базу данных
 
@@ -116,6 +136,8 @@ QUEUE_CONNECTION=database
 
 Сохранить изменения.
 
+<br>
+
 ### 6. Создать задание ClearCache
 
 Выполнить команду для создания класса задания:
@@ -123,12 +145,12 @@ QUEUE_CONNECTION=database
 ```
 php artisan make:job ClearCache
 ```
-
+<br>
 
 ### 7. Описать логику задачи очистки логов
 
 Открыть файл `ClearCache.php` в каталоге `app/Jobs`
-Найти метод `handle` и прописать следующее содержимое:
+Найти метод `handle` и прописать содержимое функции:
 
 ```
 public function handle()
@@ -137,9 +159,12 @@ public function handle()
 }
 ```
 
-Сохранить файл.
+Сохранить файл:
+```
+storage/logs/laravel.log
+```
 
-
+<br>
 
 ### 8. Поместить задачу в планировщик Laravel
 
@@ -159,6 +184,7 @@ protected function schedule(Schedule $schedule)
 ```
 Сохранить файл.
 
+<br>
 
 ### 9. Запустить очередь задач
 
@@ -167,6 +193,7 @@ protected function schedule(Schedule $schedule)
 php artisan queue:listen
 ```
 Не закрывать терминал.
+<br>
 
 ### 10. Запустить планировщик задач Laravel
 
@@ -174,9 +201,30 @@ php artisan queue:listen
 ```
 php artisan schedule:work
 ```
-Не закрывать терминал.
+Не закрывать терминал. Пример сообщений в терминале:
 
-По завершении этих действий приложение будет автоматически очищать лог-файл `laravel.log` каждый час с помощью асинхронного задания, выполняемого через очередь и планировщик.
+```
+   INFO  Processing jobs from the [default] queue.
+
+
+   INFO  Processing jobs from the [default] queue.
+
+
+   INFO  Processing jobs from the [default] queue.
+
+
+   INFO  Processing jobs from the [default] queue.
+```
+
+По завершении этих действий приложение будет автоматически очищать лог-файл `storage/logs/laravel.log` каждый час с помощью асинхронного задания, выполняемого через очередь и планировщик.
+Пример записи в файле:
+```
+[2025-08-05 22:55:30] local.INFO: Laravel log test 
+[2025-08-05 23:42:59] local.INFO: Laravel log test  
+[2025-08-05 23:43:02] local.INFO: Laravel log test  
+```
+
+Адрес в браузере: http://127.0.0.1:8000/logs
 
 
 <br><br><hr>

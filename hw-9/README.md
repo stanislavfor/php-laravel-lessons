@@ -380,8 +380,7 @@ public function boot()
 
 ### 13. Проверка генерации `slug`
 
-Снова перейти по адресу:
-
+Снова перейти по адресу: http://localhost:8000/news/create-test
 ```
 http://localhost:8000/news/create-test
 ```
