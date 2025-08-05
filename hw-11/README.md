@@ -61,13 +61,164 @@ User::class => UserPolicy::class,
 14. Создайте двух пользователей, дайте одному из них роль администратора и попробуйте перейти на маршрут ‘/users’ вашего проекта сначала за неаутентифицированного пользователя, а далее за обычного пользователя и администратора системы.
 
 
-<br><br>
+##
+## Домашнее задание
+Открыть терминал и перейти в папку с уроком:
+```
+cd hw-11
+```
+## Инструкция
 
-### Домашнее задание
+### 1. Создать новый проект Laravel
 
-<br><br><hr>
+Открыть терминал и выполнить команду для создания проекта с именем `eleventh-laravel-app`:
+```
+laravel new eleventh-laravel-app
+```
 
-### Инструкция
+Перейти в директорию проекта:
+```
+cd eleventh-laravel-app
+```
+
+### 2. Создать новую ветку репозитория
+
+Инициализировать git, если это ещё не выполнено подключение git:
+```
+git init
+```
+
+Создать новую ветку от основной ветки:
+```
+git checkout -b feature/auth-roles
+```
+
+### 3. Установить Laravel Breeze
+
+Выполнить команду в терминале:
+```
+composer require laravel/breeze
+```
+
+### 4. Установить файлы Breeze
+
+Выполнить команду:
+```
+php artisan breeze:install
+```
+
+### 5. Собрать фронтенд проекта
+
+Установить зависимости и собрать проект:
+```
+npm install
+npm run dev
+```
+
+### 6. Проверить работу регистрации и аутентификации
+
+- Запустить локальный сервер:
+```
+php artisan serve
+```
+- Открыть браузер и перейти по адресу [http://localhost:8000](http://localhost:8000)
+- Создать нового пользователя и проверить, что регистрация и вход в систему работают корректно
+
+### 7. Создать контроллер пользователей
+
+Выполнить команду для генерации контроллера:
+```
+php artisan make:controller UsersController
+```
+
+### 8. Создать метод index в контроллере UsersController
+
+Открыть файл `app/Http/Controllers/UsersController.php` и добавить метод:
+```
+use App\Models\User;
+
+public function index()
+{
+    $this->authorize('view-any', User::class);
+    return User::all();
+}
+```
+
+### 9. Создать маршрут users
+
+Открыть файл `routes/web.php` и добавить маршрут:
+```
+use App\Http\Controllers\UsersController;
+
+Route::get('/users', [UsersController::class, 'index']);
+```
+
+### 10. Добавить поле is\_admin в таблицу users
+
+- Создать миграцию:
+```
+php artisan make:migration add_is_admin_to_users_table --table=users
+```
+
+- Открыть созданный файл миграции и описать следующее в методе `up`:
+```
+$table->boolean('is_admin')->default(false);
+```
+
+- Запустить миграции:
+```
+php artisan migrate
+```
+
+### 11. Создать политику UserPolicy
+
+- Выполнить команду:
+```
+php artisan make:policy UserPolicy --model=User
+```
+- Открыть файл `app/Policies/UserPolicy.php` и добавить метод:
+```
+public function viewAny(User $user)
+{
+    return $user->is_admin;
+}
+```
+
+### 12. Зарегистрировать политику
+
+Открыть файл `app/Providers/AuthServiceProvider.php` и добавить в массив `policies`:
+```
+use App\Models\User;
+use App\Policies\UserPolicy;
+
+protected $policies = [
+    User::class => UserPolicy::class,
+];
+```
+
+### 13. Использовать авторизацию в контроллере
+
+Проверить, что в методе `index` контроллера `UsersController` присутствует вызов:
+```
+$this->authorize('view-any', User::class);
+```
+
+### 14. Проверить работу политики авторизации
+
+- Перейти по маршруту [http://localhost:8000/register](http://localhost:8000/register)
+- Создать в браузере двух пользователей
+- Открыть базу данных и вручную установить для одного из пользователей значение `is\_admin` в `true`
+- Перейти по маршруту [http://localhost:8000/users](http://localhost:8000/users)
+- Проверить, есть ли доступ к списку пользователей:
+  - без авторизации должно быть перенаправление на страницу входа
+  - от обычного пользователя должен быть отказ в доступе
+  - от администратора должен быть выведен список пользователей
+
+### 15. Создать коммит
+
+При необходимости по окончанию работы, оформить финальный коммит и отправить изменения в удалённый репозиторий.
+
+
 
 
 

@@ -247,6 +247,8 @@ php artisan serve
 <br><br>
 ![](../archives/pic-14-4.jpg)
 <br><br>
+![](../archives/pic-14-11.jpg)
+<br><br>
 ![](../archives/pic-14-5.jpg)
 <br><br>
 ![](../archives/pic-14-6.jpg)

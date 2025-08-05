@@ -324,6 +324,11 @@ $db = null;
 
 ### Домашнее задание
 
+Открыть терминал и перейти в папку с уроком:
+```
+cd hw-8
+```
+
 1. Создаем новый проект
 ```
 composer create-project laravel/laravel log-service

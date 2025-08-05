@@ -28,22 +28,155 @@
 
 7. В файле ClearCache.php пропишите код для очистки лог-файла.<br>
 ![](../archives/pic-10-1.jpg)<br>
+```
+/**
+* Execute the job.
+*
+* @raturn void
+*/
+public function handle()
+{
+   file_put_contents(storage_path( path: "logs/laravel.log ), '');
+}
+
+```
 8. Поместите вызов Job в планировщик задач Laravel в файле app/Console/Kernel.php.<br>
    ![](../archives/pic-10-2.jpg)<br>
+```
+protected Function schedule(Schedule $schedule)
+{
+   $schedule->job(ClearCache::class)->hourly();
+}
+```
 9. Запустите очередь командой php artisan queue:listen.
 
 10. Запустите планировщик задач командой php artisan schedule:work и не закрывайте терминал.
 
+##
+## Домашнее задание
+Открыть терминал и перейти в папку с уроком:
+```
+cd hw-10
+```
+## Инструкция
+### 1. Создать новый проект Laravel с именем tenth-laravel-app
+
+Открыть терминал. Выполнить команду:
+
+```
+laravel new tenth-laravel-app
+```
+
+Перейти в директорию проекта:
+
+```
+cd tenth-laravel-app
+```
+
+### 2. Создать новую ветку репозитория от основной ветки
+
+Инициализировать git, если это ещё не выполнено подключение git:
+
+```
+git init
+```
+
+Создать ветку и переключиться на нее:
+
+```
+git checkout -b feature/clear-cache-job
+```
 
 
-<br><br>
 
-### Домашнее задание
+### 3. Создать миграцию таблицы для очередей
 
-<br><br><hr>
+Выполнить команду в терминале:
 
-### Инструкция
+```
+php artisan queue:table
+```
 
+### 4. Выполнить миграцию базы данных
+
+Запустить команду миграции:
+
+```
+php artisan migrate
+```
+
+### 5. Указать использование очередей через базу данных
+
+Открыть файл с настройками окружения `.env`
+Найти строку `QUEUE\_CONNECTION` и установить значение `database`:
+
+```
+QUEUE_CONNECTION=database
+```
+
+Сохранить изменения.
+
+### 6. Создать задание ClearCache
+
+Выполнить команду для создания класса задания:
+
+```
+php artisan make:job ClearCache
+```
+
+
+### 7. Описать логику задачи очистки логов
+
+Открыть файл `ClearCache.php` в каталоге `app/Jobs`
+Найти метод `handle` и прописать следующее содержимое:
+
+```
+public function handle()
+{
+    file_put_contents(storage_path('logs/laravel.log'), '');
+}
+```
+
+Сохранить файл.
+
+
+
+### 8. Поместить задачу в планировщик Laravel
+
+Открыть файл `app/Console/Kernel.php` и добавить в начало файла строку подключения:
+
+```
+use App\Jobs\ClearCache;
+```
+
+В методе `schedule` описать задачу
+
+```
+protected function schedule(Schedule $schedule)
+{
+    $schedule->job(ClearCache::class)->hourly();
+}
+```
+Сохранить файл.
+
+
+### 9. Запустить очередь задач
+
+Открыть новый терминал в корне проекта и выполнить команду:
+```
+php artisan queue:listen
+```
+Не закрывать терминал.
+
+### 10. Запустить планировщик задач Laravel
+
+В новом терминале выполнить команду:
+```
+php artisan schedule:work
+```
+Не закрывать терминал.
+
+По завершении этих действий приложение будет автоматически очищать лог-файл `laravel.log` каждый час с помощью асинхронного задания, выполняемого через очередь и планировщик.
 
 
 <br><br><hr>
