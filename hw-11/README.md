@@ -230,13 +230,13 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
    ```
    class UsersController extends Controller
    {
-   use AuthorizesRequests;
-
-   public function index()
-   {
-   $this->authorize('view-any', User::class);
-   return User::all();
-   }
+       use AuthorizesRequests;
+    
+       public function index()
+       {
+        $this->authorize('view-any', User::class);
+        return User::all();
+       }
    }
   ```
 <br>
